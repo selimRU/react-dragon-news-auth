@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { NewsContext } from '../Context/Context';
 import Header from '../Shared/Header';
 import RightNav from '../MainPart/RightNav/RightNav';
-import { useParams } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 import Navbar from '../Shared/Navbar';
 
 const NewsDetails = () => {
     const { id } = useParams()
-    const { news } = useContext(NewsContext)
-    console.log(news);
+    const news = useLoaderData()
+        // const { news } = useContext(NewsContext)
+        console.log(news);
     const categoryNews = news.filter(category => category._id === id)
     console.log(categoryNews);
     return (
